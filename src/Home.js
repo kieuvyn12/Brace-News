@@ -1,12 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Home extends React.Component {
   constructor() {
     super()
     this.state = {
-      articles: []
+      articles: [],
+      clicked: false
     }
     this.getArticles = this.getArticles.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -24,11 +27,26 @@ class Home extends React.Component {
     })
   }
 
+  onSubmit() {
+    this.setState({
+      clicked: true
+    })
+  }
+
   render() {
     return (
       <div>
-        {console.log(this.state)}
         <h1>Click below to get a list of the top 5 breaking news in the US!</h1>
+        <Link
+          to={{
+            pathname: '/results',
+            state: {
+              articles: this.state.articles
+            }
+          }}
+        >
+          <button onClick={this.onSubmit}>Click here!</button>
+        </Link>
       </div>
     )
   }
