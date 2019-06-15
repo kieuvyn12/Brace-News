@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Results extends React.Component {
   constructor(props) {
@@ -36,7 +37,16 @@ class Results extends React.Component {
         {this.state.allArticles.length !== 0 ? (
           <div>
             {this.state.top5.map(article => (
-              <h3 key={this.state.top5.indexOf(article)}>{article.title}</h3>
+              <Link
+                to={{
+                  pathname: '/article',
+                  state: {
+                    article: article
+                  }
+                }}
+              >
+                <h3 key={this.state.top5.indexOf(article)}>{article.title}</h3>
+              </Link>
             ))}
           </div>
         ) : (
@@ -46,7 +56,16 @@ class Results extends React.Component {
         {this.state.top5.length !== 0 ? (
           <div>
             {this.state.top10.map(article => (
-              <h3 key={this.state.top10.indexOf(article)}>{article.title}</h3>
+              <Link
+                to={{
+                  pathname: '/article',
+                  state: {
+                    article: article
+                  }
+                }}
+              >
+                <h3 key={this.state.top10.indexOf(article)}>{article.title}</h3>
+              </Link>
             ))}
           </div>
         ) : (
@@ -56,7 +75,17 @@ class Results extends React.Component {
         {this.state.top10.length !== 0 ? (
           <div>
             {this.state.top15.map(article => (
-              <h3 key={this.state.top15.indexOf(article)}>{article.title}</h3>
+              <Link
+                to={{
+                  pathname: '/article',
+                  state: {
+                    article: article
+                  }
+                }}
+              >
+                {' '}
+                <h3 key={this.state.top15.indexOf(article)}>{article.title}</h3>
+              </Link>
             ))}
           </div>
         ) : (
@@ -66,7 +95,16 @@ class Results extends React.Component {
         {this.state.top15.length !== 0 ? (
           <div>
             {this.state.top20.map(article => (
-              <h3 key={this.state.top20.indexOf(article)}>{article.title}</h3>
+              <Link
+                to={{
+                  pathname: '/article',
+                  state: {
+                    article: article
+                  }
+                }}
+              >
+                <h3 key={this.state.top20.indexOf(article)}>{article.title}</h3>
+              </Link>
             ))}
           </div>
         ) : (
