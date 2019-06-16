@@ -30,11 +30,22 @@ class FilterForm extends React.Component {
   }
 
   filter(str) {
-    let filtered = this.props.articles.filter(article => {
-      return article.title.includes(str)
+    let lowercasedStr = str.toLowerCase()
+
+    let lowercasedArticles = this.props.articles.map(article =>
+      article.title.toLowerCase()
+    )
+
+    let lowercasedFiltered = lowercasedArticles.filter(article =>
+      article.includes(lowercasedStr)
+    )
+
+    let finalFiltered = this.props.articles.filter(article => {
+      return lowercasedFiltered.includes(article.title.toLowerCase())
     })
+
     this.setState({
-      allArticles: filtered,
+      allArticles: finalFiltered,
       filtered: true
     })
   }
