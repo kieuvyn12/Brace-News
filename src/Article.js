@@ -8,8 +8,6 @@ class Article extends React.Component {
       <div>
         <Jumbotron>
           <h3>{this.props.location.state.article.title}</h3>
-          <br />
-          <p>{this.props.location.state.article.description}</p>
         </Jumbotron>
         <Card className="text-center">
           <Card.Header>

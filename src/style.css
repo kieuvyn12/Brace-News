@@ -1,0 +1,23 @@
+.jumbotron {
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+img {
+  width: 80%;
+  border-radius: 25px;
+}
+
+.card {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+}

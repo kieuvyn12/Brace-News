@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import FilterForm from './FilterForm'
-
 import {Jumbotron, Container, Col, ListGroup} from 'react-bootstrap'
 
 class Results extends React.Component {
@@ -50,109 +49,120 @@ class Results extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.state)}
         <Jumbotron>
           <h1>Breaking News Headlines</h1>
           <br />
           <h5>Delivering you the latest top news headlines in the US:</h5>
         </Jumbotron>
         <Container>
-          <FilterForm
-            articles={this.state.allArticles}
-            filtered={this.filtered}
-          />
+          <Col sm={11}>
+            <FilterForm
+              articles={this.state.allArticles}
+              filtered={this.filtered}
+            />
+          </Col>
         </Container>
         <Container>
-          {this.state.allArticles.length !== 0 &&
-          this.state.filtered === false ? (
-            <ListGroup>
-              {this.state.top5.map(article => (
-                <Link
-                  to={{
-                    pathname: '/article',
-                    state: {
-                      article: article
-                    }
-                  }}
-                >
-                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
-                    {article.title}
-                  </ListGroup.Item>
-                </Link>
-              ))}
-            </ListGroup>
-          ) : (
-            <br />
-          )}
+          <Col sm={11}>
+            {this.state.allArticles.length !== 0 &&
+            this.state.filtered === false ? (
+              <ListGroup>
+                {this.state.top5.map(article => (
+                  <Link
+                    to={{
+                      pathname: '/article',
+                      state: {
+                        article: article
+                      }
+                    }}
+                  >
+                    <ListGroup.Item
+                      key={this.state.allArticles.indexOf(article)}
+                    >
+                      {article.title}
+                    </ListGroup.Item>
+                  </Link>
+                ))}
+              </ListGroup>
+            ) : (
+              <br />
+            )}
 
-          {this.state.top5.length !== 0 && this.state.filtered === false ? (
-            <ListGroup>
-              {this.state.top10.map(article => (
-                <Link
-                  to={{
-                    pathname: '/article',
-                    state: {
-                      article: article
-                    }
-                  }}
-                >
-                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
-                    {article.title}
-                  </ListGroup.Item>
-                </Link>
-              ))}
-            </ListGroup>
-          ) : (
-            <br />
-          )}
+            {this.state.top5.length !== 0 && this.state.filtered === false ? (
+              <ListGroup>
+                {this.state.top10.map(article => (
+                  <Link
+                    to={{
+                      pathname: '/article',
+                      state: {
+                        article: article
+                      }
+                    }}
+                  >
+                    <ListGroup.Item
+                      key={this.state.allArticles.indexOf(article)}
+                    >
+                      {article.title}
+                    </ListGroup.Item>
+                  </Link>
+                ))}
+              </ListGroup>
+            ) : (
+              <br />
+            )}
 
-          {this.state.top10.length !== 0 && this.state.filtered === false ? (
-            <ListGroup>
-              {this.state.top15.map(article => (
-                <Link
-                  to={{
-                    pathname: '/article',
-                    state: {
-                      article: article
-                    }
-                  }}
-                >
-                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
-                    {article.title}
-                  </ListGroup.Item>
-                </Link>
-              ))}
-            </ListGroup>
-          ) : (
-            <br />
-          )}
+            {this.state.top10.length !== 0 && this.state.filtered === false ? (
+              <ListGroup>
+                {this.state.top15.map(article => (
+                  <Link
+                    to={{
+                      pathname: '/article',
+                      state: {
+                        article: article
+                      }
+                    }}
+                  >
+                    <ListGroup.Item
+                      key={this.state.allArticles.indexOf(article)}
+                    >
+                      {article.title}
+                    </ListGroup.Item>
+                  </Link>
+                ))}
+              </ListGroup>
+            ) : (
+              <br />
+            )}
 
-          {this.state.top15.length !== 0 && this.state.filtered === false ? (
-            <ListGroup>
-              {this.state.top20.map(article => (
-                <Link
-                  to={{
-                    pathname: '/article',
-                    state: {
-                      article: article
-                    }
-                  }}
-                >
-                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
-                    {article.title}
-                  </ListGroup.Item>
-                </Link>
-              ))}
-            </ListGroup>
-          ) : (
-            <br />
-          )}
+            {this.state.top15.length !== 0 && this.state.filtered === false ? (
+              <ListGroup>
+                {this.state.top20.map(article => (
+                  <Link
+                    to={{
+                      pathname: '/article',
+                      state: {
+                        article: article
+                      }
+                    }}
+                  >
+                    <ListGroup.Item
+                      key={this.state.allArticles.indexOf(article)}
+                    >
+                      {article.title}
+                    </ListGroup.Item>
+                  </Link>
+                ))}
+              </ListGroup>
+            ) : (
+              <br />
+            )}
 
-          {this.state.top20.length === 0 && this.state.filtered === false ? (
-            <button onClick={this.onSubmit}>See 5 more articles!</button>
-          ) : (
-            <br />
-          )}
+            {this.state.top20.length === 0 && this.state.filtered === false ? (
+              <button onClick={this.onSubmit}>See 5 more articles!</button>
+            ) : (
+              <br />
+            )}
+          </Col>
         </Container>
       </div>
     )
