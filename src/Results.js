@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import FilterForm from './FilterForm'
 
-import {Jumbotron, Container, Col} from 'react-bootstrap'
+import {Jumbotron, Container, Col, ListGroup} from 'react-bootstrap'
 
 class Results extends React.Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class Results extends React.Component {
         </Container>
         <Container>
           {this.state.allArticles.length !== 0 ? (
-            <div>
+            <ListGroup>
               {this.state.top5.map(article => (
                 <Link
                   to={{
@@ -72,18 +72,18 @@ class Results extends React.Component {
                     }
                   }}
                 >
-                  <h3 key={this.state.allArticles.indexOf(article)}>
+                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
                     {article.title}
-                  </h3>
+                  </ListGroup.Item>
                 </Link>
               ))}
-            </div>
+            </ListGroup>
           ) : (
             <br />
           )}
 
           {this.state.top5.length !== 0 ? (
-            <div>
+            <ListGroup>
               {this.state.top10.map(article => (
                 <Link
                   to={{
@@ -93,18 +93,18 @@ class Results extends React.Component {
                     }
                   }}
                 >
-                  <h3 key={this.state.allArticles.indexOf(article)}>
+                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
                     {article.title}
-                  </h3>
+                  </ListGroup.Item>
                 </Link>
               ))}
-            </div>
+            </ListGroup>
           ) : (
             <br />
           )}
 
           {this.state.top10.length !== 0 ? (
-            <div>
+            <ListGroup>
               {this.state.top15.map(article => (
                 <Link
                   to={{
@@ -114,18 +114,18 @@ class Results extends React.Component {
                     }
                   }}
                 >
-                  <h3 key={this.state.allArticles.indexOf(article)}>
+                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
                     {article.title}
-                  </h3>
+                  </ListGroup.Item>
                 </Link>
               ))}
-            </div>
+            </ListGroup>
           ) : (
             <br />
           )}
 
           {this.state.top15.length !== 0 ? (
-            <div>
+            <ListGroup>
               {this.state.top20.map(article => (
                 <Link
                   to={{
@@ -135,12 +135,12 @@ class Results extends React.Component {
                     }
                   }}
                 >
-                  <h3 key={this.state.allArticles.indexOf(article)}>
+                  <ListGroup.Item key={this.state.allArticles.indexOf(article)}>
                     {article.title}
-                  </h3>
+                  </ListGroup.Item>
                 </Link>
               ))}
-            </div>
+            </ListGroup>
           ) : (
             <br />
           )}

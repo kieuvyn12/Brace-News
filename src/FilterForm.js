@@ -1,4 +1,6 @@
 import React from 'react'
+import {ListGroup} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 class FilterForm extends React.Component {
   constructor(props) {
@@ -65,11 +67,20 @@ class FilterForm extends React.Component {
         </form>
 
         {this.state.allArticles.length !== 0 && this.state.filtered ? (
-          <div>
+          <ListGroup>
             {this.state.allArticles.map(article => (
-              <h5>{article.title}</h5>
+              <Link
+                to={{
+                  pathname: '/article',
+                  state: {
+                    article: article
+                  }
+                }}
+              >
+                <ListGroup.Item>{article.title}</ListGroup.Item>
+              </Link>
             ))}
-          </div>
+          </ListGroup>
         ) : (
           <br />
         )}
