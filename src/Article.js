@@ -32,7 +32,8 @@ class Article extends React.Component {
             </a>
           </Card.Body>
           <Card.Footer className="text-muted">
-            Published: {this.props.location.state.article.publishedAt}
+            Published on:{' '}
+            {this.props.location.state.article.publishedAt.slice(0, 10)}
           </Card.Footer>
         </Card>
       </div>
