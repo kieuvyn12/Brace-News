@@ -1,5 +1,5 @@
 .jumbotron {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-right: 100px;
   margin-left: 100px;
 }
@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 img {
@@ -20,4 +20,20 @@ img {
   margin-right: 100px;
   margin-left: 100px;
   margin-bottom: 50px;
+}
+
+.carousel-item {
+  height: 350px;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+.carousel-item img {
+  opacity: 0.2;
+  border-radius: 0px;
+}
+
+.carousel-text {
+  color: black;
 }
