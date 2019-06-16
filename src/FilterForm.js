@@ -1,5 +1,5 @@
 import React from 'react'
-import {ListGroup} from 'react-bootstrap'
+import {ListGroup, Form, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 class FilterForm extends React.Component {
@@ -55,16 +55,23 @@ class FilterForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Filter Headlines by Keyword:</label>
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <Form>
+          <Form.Group controlId="formFilter">
+            <Form.Label>Filter by Keyword:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="keyword here"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
+            <Form.Text className="text-muted">
+              For best results, enter one keyword at a time.
+            </Form.Text>
+          </Form.Group>
+          <Button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </Button>
+        </Form>
 
         {this.state.allArticles.length !== 0 && this.state.filtered ? (
           <ListGroup>
