@@ -83,7 +83,7 @@ class Home extends React.Component {
                 />
 
                 <Carousel.Caption className="carousel-text">
-                  <h3>Where do you get your sources?</h3>
+                  <h3>Where do we get our sources?</h3>
                   <p>
                     We aggreggate articles from over 30,000 news sources and
                     blogs.

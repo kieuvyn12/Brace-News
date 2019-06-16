@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {Jumbotron, Button, Card} from 'react-bootstrap'
 
 class Article extends React.Component {
