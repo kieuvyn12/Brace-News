@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import FilterForm from './FilterForm'
 
 class Results extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class Results extends React.Component {
     return (
       <div>
         <h1>breaking news articles:</h1>
+        <FilterForm articles={this.state.allArticles} />
         {this.state.allArticles.length !== 0 ? (
           <div>
             {this.state.top5.map(article => (
