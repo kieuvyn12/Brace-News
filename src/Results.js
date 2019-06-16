@@ -45,7 +45,9 @@ class Results extends React.Component {
                   }
                 }}
               >
-                <h3 key={this.state.top5.indexOf(article)}>{article.title}</h3>
+                <h3 key={this.state.allArticles.indexOf(article)}>
+                  {article.title}
+                </h3>
               </Link>
             ))}
           </div>
@@ -64,7 +66,9 @@ class Results extends React.Component {
                   }
                 }}
               >
-                <h3 key={this.state.top10.indexOf(article)}>{article.title}</h3>
+                <h3 key={this.state.allArticles.indexOf(article)}>
+                  {article.title}
+                </h3>
               </Link>
             ))}
           </div>
@@ -83,8 +87,9 @@ class Results extends React.Component {
                   }
                 }}
               >
-                {' '}
-                <h3 key={this.state.top15.indexOf(article)}>{article.title}</h3>
+                <h3 key={this.state.allArticles.indexOf(article)}>
+                  {article.title}
+                </h3>
               </Link>
             ))}
           </div>
@@ -103,7 +108,9 @@ class Results extends React.Component {
                   }
                 }}
               >
-                <h3 key={this.state.top20.indexOf(article)}>{article.title}</h3>
+                <h3 key={this.state.allArticles.indexOf(article)}>
+                  {article.title}
+                </h3>
               </Link>
             ))}
           </div>
@@ -112,7 +119,7 @@ class Results extends React.Component {
         )}
 
         {this.state.top20.length === 0 ? (
-          <button onClick={this.onSubmit}>click to get 5 more!</button>
+          <button onClick={this.onSubmit}>See 5 more articles!</button>
         ) : (
           <br />
         )}
