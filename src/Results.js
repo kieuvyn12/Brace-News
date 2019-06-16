@@ -12,7 +12,8 @@ class Results extends React.Component {
       top5: this.props.location.state.articles.slice(0, 5),
       top10: [],
       top15: [],
-      top20: []
+      top20: [],
+      filtered: false
     }
     this.onSubmit = this.onSubmit.bind(this)
     this.filtered = this.filtered.bind(this)
@@ -49,6 +50,7 @@ class Results extends React.Component {
   render() {
     return (
       <div>
+        {console.log(this.state)}
         <Jumbotron>
           <h1>Breaking News Headlines</h1>
           <br />
@@ -61,7 +63,8 @@ class Results extends React.Component {
           />
         </Container>
         <Container>
-          {this.state.allArticles.length !== 0 ? (
+          {this.state.allArticles.length !== 0 &&
+          this.state.filtered === false ? (
             <ListGroup>
               {this.state.top5.map(article => (
                 <Link
@@ -82,7 +85,7 @@ class Results extends React.Component {
             <br />
           )}
 
-          {this.state.top5.length !== 0 ? (
+          {this.state.top5.length !== 0 && this.state.filtered === false ? (
             <ListGroup>
               {this.state.top10.map(article => (
                 <Link
@@ -103,7 +106,7 @@ class Results extends React.Component {
             <br />
           )}
 
-          {this.state.top10.length !== 0 ? (
+          {this.state.top10.length !== 0 && this.state.filtered === false ? (
             <ListGroup>
               {this.state.top15.map(article => (
                 <Link
@@ -124,7 +127,7 @@ class Results extends React.Component {
             <br />
           )}
 
-          {this.state.top15.length !== 0 ? (
+          {this.state.top15.length !== 0 && this.state.filtered === false ? (
             <ListGroup>
               {this.state.top20.map(article => (
                 <Link
@@ -145,7 +148,7 @@ class Results extends React.Component {
             <br />
           )}
 
-          {this.state.top20.length === 0 ? (
+          {this.state.top20.length === 0 && this.state.filtered === false ? (
             <button onClick={this.onSubmit}>See 5 more articles!</button>
           ) : (
             <br />

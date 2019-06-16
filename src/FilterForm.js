@@ -72,6 +72,7 @@ class FilterForm extends React.Component {
             Submit
           </Button>
         </Form>
+        <br />
 
         {this.state.allArticles.length !== 0 && this.state.filtered ? (
           <ListGroup>
@@ -84,7 +85,13 @@ class FilterForm extends React.Component {
                   }
                 }}
               >
-                <ListGroup.Item>{article.title}</ListGroup.Item>
+                <ListGroup.Item
+                  as="li"
+                  active
+                  key={this.state.allArticles.indexOf(article)}
+                >
+                  {article.title}
+                </ListGroup.Item>
               </Link>
             ))}
           </ListGroup>
