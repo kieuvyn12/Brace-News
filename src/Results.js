@@ -13,6 +13,19 @@ class Results extends React.Component {
       top20: []
     }
     this.onSubmit = this.onSubmit.bind(this)
+    this.filtered = this.filtered.bind(this)
+  }
+
+  filtered() {
+    if (this.state.filtered) {
+      this.setState({
+        filtered: false
+      })
+    } else {
+      this.setState({
+        filtered: true
+      })
+    }
   }
 
   onSubmit() {
@@ -35,7 +48,10 @@ class Results extends React.Component {
     return (
       <div>
         <h1>breaking news articles:</h1>
-        <FilterForm articles={this.state.allArticles} />
+        <FilterForm
+          articles={this.state.allArticles}
+          filtered={this.filtered}
+        />
         {this.state.allArticles.length !== 0 ? (
           <div>
             {this.state.top5.map(article => (
