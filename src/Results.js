@@ -2,6 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import FilterForm from './FilterForm'
 
+import {Jumbotron} from 'react-bootstrap'
+
 class Results extends React.Component {
   constructor(props) {
     super(props)
@@ -47,7 +49,11 @@ class Results extends React.Component {
   render() {
     return (
       <div>
-        <h1>breaking news articles:</h1>
+        <Jumbotron>
+          <h1>Breaking News Headlines</h1>
+          <br />
+          <h5>Delivering you the latest top news headlines in the US:</h5>
+        </Jumbotron>
         <FilterForm
           articles={this.state.allArticles}
           filtered={this.filtered}

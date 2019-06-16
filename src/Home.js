@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {Jumbotron, Button} from 'react-bootstrap'
 
 class Home extends React.Component {
   constructor() {
@@ -35,19 +36,27 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Click below to get a list of the top 5 breaking news in the US!</h1>
-        <Link
-          to={{
-            pathname: '/results',
-            state: {
-              articles: this.state.articles
-            }
-          }}
-        >
-          <button onClick={this.onSubmit}>Click here!</button>
-        </Link>
-      </div>
+      <Jumbotron>
+        <h1>Welcome to the Brace News app!</h1>
+        <p>
+          We aggregate live top and breaking headlines for the United States
+          from multiple news sources.
+        </p>
+        <p>
+          <Link
+            to={{
+              pathname: '/results',
+              state: {
+                articles: this.state.articles
+              }
+            }}
+          >
+            <Button variant="primary" onClick={this.onSubmit}>
+              See news
+            </Button>{' '}
+          </Link>
+        </p>
+      </Jumbotron>
     )
   }
 }

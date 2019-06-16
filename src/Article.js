@@ -1,12 +1,16 @@
 import React from 'react'
 
+import {Jumbotron} from 'react-bootstrap'
+
 class Article extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.props.location.state.article.title}</h2>
-        <br />
-        <p>{this.props.location.state.article.description}</p>
+        <Jumbotron>
+          <h3>{this.props.location.state.article.title}</h3>
+          <br />
+          <p>{this.props.location.state.article.description}</p>
+        </Jumbotron>
         <img
           src={this.props.location.state.article.urlToImage}
           alt="pic from news source"
