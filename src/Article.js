@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Jumbotron, Container} from 'react-bootstrap'
+import {Jumbotron, Button, Card} from 'react-bootstrap'
 
 class Article extends React.Component {
   render() {
@@ -11,25 +11,33 @@ class Article extends React.Component {
           <br />
           <p>{this.props.location.state.article.description}</p>
         </Jumbotron>
-        <Container>
-          <div>
+        <Card className="text-center">
+          <Card.Header>
             <img
               src={this.props.location.state.article.urlToImage}
-              alt="pic from news source"
+              alt="pic from source"
             />
-            <h5>Author: {this.props.location.state.article.author}</h5>
-            <h6>
-              Published at: {this.props.location.state.article.publishedAt}{' '}
-              from: {this.props.location.state.article.source.name}
-            </h6>
-            <p>
-              Preview of article:{this.props.location.state.article.content}
-            </p>
+          </Card.Header>
+          <Card.Body>
+            <blockquote className="blockquote mb-0">
+              <p>{this.props.location.state.article.description}</p>
+              <footer className="blockquote-footer">
+                {this.props.location.state.article.author} from{' '}
+                <cite title="Source Title">
+                  {this.props.location.state.article.source.name}
+                </cite>
+              </footer>
+            </blockquote>
+            <br />
+            <Card.Text>{this.props.location.state.article.content}</Card.Text>
             <a href={this.props.location.state.article.url}>
-              click here to see from original source
+              <Button variant="primary">Read more</Button>
             </a>
-          </div>
-        </Container>
+          </Card.Body>
+          <Card.Footer className="text-muted">
+            Published: {this.props.location.state.article.publishedAt}
+          </Card.Footer>
+        </Card>
       </div>
     )
   }
